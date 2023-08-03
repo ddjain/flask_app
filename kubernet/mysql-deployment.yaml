@@ -32,13 +32,19 @@ spec:
                   name: db-credentials
                   key: password
             - name: MYSQL_DATABASE
-              value: your_database_name
+              value: product
           ports:
             - containerPort: 3306
           volumeMounts:
             - name: db-data
               mountPath: /var/lib/mysql
+            - name: script-volume
+              mountPath: /docker-entrypoint-initdb.d/init.sql
+              subPath: init.sql
       volumes:
         - name: db-data
           persistentVolumeClaim:
             claimName: mysql-pvc
+        - name: script-volume
+          persistentVolumeClaim:
+            claimName: mysql-script-pvc
