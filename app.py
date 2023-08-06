@@ -27,7 +27,8 @@ def get_user(user_id):
             user_data = {
                 'id': user[0],
                 'username': user[1],
-                'email': user[2]
+                'email': user[2],
+                'message':"v1 api"
             }
             return jsonify(user_data)
         else:
