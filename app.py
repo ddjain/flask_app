@@ -28,7 +28,7 @@ def get_user(user_id):
     try:
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor()
-        app.logger.info('This is an info message')
+        app.logger.info('User Id is : '+str(user_id))
 
         query = "SELECT * FROM users WHERE id = %s"
         cursor.execute(query, (user_id,))
@@ -39,7 +39,7 @@ def get_user(user_id):
                 'id': user[0],
                 'username': user[1],
                 'email': user[2],
-                'message':"v3 api"
+                'message':"v4 api"
             }
             return jsonify(user_data)
         else:
