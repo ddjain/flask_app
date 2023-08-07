@@ -39,7 +39,7 @@ def get_user(user_id):
                 'id': user[0],
                 'username': user[1],
                 'email': user[2],
-                'message':"v4 api"
+                'message':"v5 api"
             }
             return jsonify(user_data)
         else:
