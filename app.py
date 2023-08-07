@@ -18,7 +18,7 @@ def get_user(user_id):
     try:
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor()
-
+        print(user_id)
         query = "SELECT * FROM users WHERE id = %s"
         cursor.execute(query, (user_id,))
         user = cursor.fetchone()
